@@ -1,0 +1,37 @@
+.user {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: absolute;
+  right: 8em;
+}
+
+.mainImg {
+  height: 48px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.userName {
+  padding-left: 0.6em;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .user {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 8em;
+  }
+}
+@media (max-width: 479px) {
+  .mainImg {
+    display: none;
+  }
+  .user {
+    display: none;
+  }
+}

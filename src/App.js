@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Maker from "./components/maker/Maker";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp";
+import styles from "./App.module.css";
 
-function App() {
+const App = ({ FileInput, authService,database }) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickName,setNickName] = useState("");  
+
+
+  const handleNickName = (e)=>{
+    setNickName(e.target.value);
+  }
+
+  const handleMail = (e) => {
+    setEmail(e.target.value)
+  };
+  const handlePW = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Login authService={authService} database={database} handleMail={handleMail} handlePW={handlePW} email={email} password={password}/>
+          </Route>
+          <Route path="/home" onLogout={authService.onLogout}>
+            <Maker
+              authService={authService}
+              FileInput={FileInput}
+              database={database}
+              email={email}
+            />
+          </Route>
+          <Route path="/signup">
+            <SignUp authService={authService} handleNickName={handleNickName}/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

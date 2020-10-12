@@ -1,0 +1,40 @@
+.login {
+  height: 100vh;
+}
+
+.list {
+  width: 100%;
+  background-color: #a4b0be;
+  list-style: none;
+  display: flex;
+  /* padding: 2em; */
+  justify-content: center;
+  padding: 0;
+  margin: 1em auto 0 auto;
+}
+
+.logo {
+  font-size: 50px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+}
+
+.button > p {
+  margin: 0;
+  color: white;
+  font-size: medium;
+}
+.logo {
+  margin-bottom: 0.1em;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,10 @@
+.maker {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* .content {
+  position: ;
+} */
